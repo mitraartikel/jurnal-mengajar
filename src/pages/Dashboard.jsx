@@ -1,4 +1,5 @@
-import { Calendar, Users, Book } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Calendar, Users, Book, Settings, ChevronRight } from 'lucide-react'; 
 
 const Dashboard = () => {
   // Tanggal dummy dulu
@@ -29,6 +30,51 @@ const Dashboard = () => {
             <p className="text-xs font-semibold text-teal-600 uppercase tracking-wider mt-1">Jurnal Ajar</p>
           </div>
         </div>
+
+{/* MENU CEPAT (Tambahkan Section Ini setelah Grid Statistik) */}
+      <section className="mt-2">
+        <h2 className="font-bold text-slate-800 mb-3 text-lg">Menu Utama</h2>
+        <div className="bg-white rounded-3xl p-2 shadow-sm border border-slate-100 space-y-1">
+          
+          <Link to="/kelas" className="flex items-center gap-4 p-3 hover:bg-slate-50 rounded-2xl transition-colors">
+            <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600">
+              <Users size={20} />
+            </div>
+            <div className="flex-1">
+              <h3 className="font-bold text-slate-700 text-sm">Data Kelas & Siswa</h3>
+              <p className="text-xs text-slate-400">Input siswa, import Excel</p>
+            </div>
+            <ChevronRight size={18} className="text-slate-300" />
+          </Link>
+
+          {/*Di dalam bagian MENU UTAMA (di bawah Link Data Kelas)*/} 
+
+          <Link to="/rencana-ajar" className="flex items-center gap-4 p-3 hover:bg-slate-50 rounded-2xl transition-colors">
+            <div className="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center text-teal-600">
+              <Book size={20} />
+            </div>
+            <div className="flex-1">
+              <h3 className="font-bold text-slate-700 text-sm">Bank Materi (RPP)</h3>
+              <p className="text-xs text-slate-400">Atur silabus & tujuan pembelajaran</p>
+            </div>
+            <ChevronRight size={18} className="text-slate-300" />
+          </Link>
+
+          {/* Menu Dummy Lain */}
+          <div className="flex items-center gap-4 p-3 hover:bg-slate-50 rounded-2xl transition-colors opacity-50">
+            <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center text-orange-600">
+              <Settings size={20} />
+            </div>
+            <div className="flex-1">
+              <h3 className="font-bold text-slate-700 text-sm">Pengaturan</h3>
+              <p className="text-xs text-slate-400">Data sekolah & profil</p>
+            </div>
+            <ChevronRight size={18} className="text-slate-300" />
+          </div>
+
+        </div>
+      </section>
+
 
         {/* Card 2 */}
         <div className="bg-indigo-50/50 p-5 rounded-3xl border border-indigo-100/50 flex flex-col justify-between h-32 relative overflow-hidden group">
