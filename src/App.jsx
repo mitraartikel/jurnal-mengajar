@@ -1,12 +1,25 @@
 // src/App.jsx
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+import MainLayout from './layouts/MainLayout';
+
 function App() {
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-      <h1 className="text-2xl font-bold text-gray-800">
-        Siap Membuat Halaman Login
-      </h1>
-    </div>
-  )
+    <BrowserRouter>
+      <Routes>
+        {/* Halaman Login (Berdiri Sendiri) */}
+        <Route path="/login" element={<Login />} />
+
+        {/* Halaman Dalam (Pakai Menu Bawah) */}
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/jurnal" element={<div className="p-6">Halaman Jurnal (Segera)</div>} />
+          <Route path="/profil" element={<div className="p-6">Halaman Profil (Segera)</div>} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
